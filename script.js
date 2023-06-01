@@ -8,23 +8,9 @@ const erase = document.getElementById("eraserBtn");
 const clear = document.getElementById("clearBtn");
 
 let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
 
 let color="#000000";
 let botaoDownload = document.getElementById('download');
-
-botaoDownload.addEventListener('click', () =>{
-  gridContainer.style.boxShadow = 'none';
-  html2canvas(gridContainer).then(function(canvas) {
-    let imgData = canvas.toDataURL('image/jpeg');
-    let link = document.createElement('a');
-    link.href = imgData;
-    link.download = 'minhaDiv.jpeg';
-    link.click();
-  });
-  gridContainer.style.boxShadow = 'rgba(0, 0, 0, 0.24) 0px 3px 8px';
-});
 
 // Create dynamically grid items based in the slide bar size
 function makeRows(size) {
@@ -37,6 +23,7 @@ function makeRows(size) {
     // A event when the mouse button is clicked
     cell.addEventListener("mousedown",() =>{
         mouseDown=true;
+        cell.style.backgroundColor = color;
     });
 
     // A event when the mouse button was released
@@ -44,7 +31,7 @@ function makeRows(size) {
         mouseDown=false;
     });
     
-    // A event when the mouse over a grid item and them change his color
+    // A event, when the mouse over a grid item, then, change his color
     cell.addEventListener("mouseover",() =>{
       if(mouseDown){
         cell.style.backgroundColor = color; // Color change according to color input
@@ -85,4 +72,16 @@ clear.addEventListener('click', () => {
   grid.innerHTML = '';
   makeRows(size);
 });
-// oninput="rangeValue.innerText = this.value"
+
+// Download
+botaoDownload.addEventListener('click', () =>{
+  gridContainer.style.boxShadow = 'none';
+  html2canvas(gridContainer).then(function(canvas) {
+    let imgData = canvas.toDataURL('image/jpeg');
+    let link = document.createElement('a');
+    link.href = imgData;
+    link.download = 'voxeldraw.jpeg';
+    link.click();
+  });
+  gridContainer.style.boxShadow = 'rgba(0, 0, 0, 0.24) 0px 3px 8px';
+});

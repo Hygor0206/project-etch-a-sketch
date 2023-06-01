@@ -3,9 +3,14 @@ const slider=document.getElementById("sizeSlider");
 const sliderValue = document.getElementById("sizeValue");
 const inputColor = document.getElementById("colorPicker");
 const colorMode = document.getElementById("colorBtn");
-const rainbow = document.getElementById("rainbowBtn");
+const rainbowMode = document.getElementById("rainbowBtn");
+const erase = document.getElementById("eraserBtn");
+const clear = document.getElementById("clearBtn");
 
-let mouseDown = false;
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
 let color="#000000";
 
 // Create dynamically grid items based in the slide bar size
@@ -48,8 +53,23 @@ slider.addEventListener('input', () => {
 });
 
 // Change the brush color
-inputColor.addEventListener("change", () => {
+inputColor.addEventListener('change', () => {
   color=inputColor.value; 
 });
 
+// Color Mode
+colorMode.addEventListener('click', () => {
+  color=inputColor.value;
+});
+
+// Erase Mode
+erase.addEventListener('click', () => {
+  color="white";
+});
+
+// Clear Grid
+clear.addEventListener('click', () => {
+  grid.innerHTML = '';
+  makeRows(size);
+});
 // oninput="rangeValue.innerText = this.value"

@@ -1,24 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@500&display=swap');
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
- 
-:root{
-    --grid-size:1;
+
+body::-webkit-scrollbar {
+    display: none;
 }
   
-.grid {
-    display: grid;
-    width: 500px;
-    height: 500px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+body{
+    background-color: #8d99ae;
+    font-family: 'Geologica', sans-serif;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-.grid-item {
-    user-select: none;
+button{
+    font-family: 'Geologica';
+    border: 1px solid #ef233c;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
-  
+
+button:hover{
+    background-color: #ef233c;
+    color: #780000;
+    border-color: #780000;
+}
+
+.title{
+    font-size: 3rem;
+    color: #ef233c;
+    text-align: center;
+    margin: 0.2em 2.5em;
+    border-bottom: 3px solid #ef233c;
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.5em 50px;
+}
+
+.settings{
+    width: 300px;
+    padding: 15px 50px;
+    border: 2px solid #ef233c;
+    border-radius: 10px;
+}
+
+.settings button{
+    display: block;
+    color: #ef233c;
+    padding: 10px 30px;
+    margin: 15px 0;
+    font-size: 1.5em;
+    width: 200px;
+}
+
+.subtitle{
+    color: #ef233c;
+    text-align: center;
+}
+
+#colorPicker{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 150px;
+    height: 150px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    margin : 0 auto;
+}
+
+#colorPicker::-webkit-color-swatch{
+    border-radius: 10px;
+    border: 3px solid #ef233c;
+}
+
 #sizeSlider {
     -webkit-appearance: none;
     width: 100%;
@@ -39,13 +106,35 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #04AA6D;
+    background: #ef233c;
     cursor: pointer;
 }
   
 #sizeSlider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #04AA6D;
+    background: #ef233c;
     cursor: pointer;
+}
+
+.size-value{
+    text-align: center;
+    font-size: 1.2em;
+    color: #ef233c;
+    font-weight: 800;
+    margin: 5px 0;
+}
+
+.grid {
+    display: grid;
+    width: 550px;
+    height: 550px;
+    border: 1px transparent solid;
+    border-radius: 10px;
+    background-color: #edf2f4;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.grid-item {
+    user-select: none;
 }

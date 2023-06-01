@@ -12,6 +12,17 @@ document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
 let color="#000000";
+let botaoDownload = document.getElementById('download');
+
+botaoDownload.addEventListener('click', () =>{
+  html2canvas(gridContainer).then(function(canvas) {
+    var imgData = canvas.toDataURL('image/jpeg');
+    var link = document.createElement('a');
+    link.href = imgData;
+    link.download = 'minhaDiv.jpeg';
+    link.click();
+  });
+});
 
 // Create dynamically grid items based in the slide bar size
 function makeRows(size) {

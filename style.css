@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
 }
   
 body{
-    background-color: #8d99ae;
+    background-color: #f8edeb;
     font-family: 'Geologica', sans-serif;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -24,6 +24,12 @@ button{
     background-color: transparent;
     transition: all 0.2s ease;
     cursor: pointer;
+    display: block;
+    color: #ef233c;
+    padding: 10px 30px;
+    margin: 15px 0;
+    font-size: 1.5em;
+    width: 200px;
 }
 
 button:hover{
@@ -52,15 +58,6 @@ button:hover{
     padding: 15px 50px;
     border: 2px solid #ef233c;
     border-radius: 10px;
-}
-
-.settings button{
-    display: block;
-    color: #ef233c;
-    padding: 10px 30px;
-    margin: 15px 0;
-    font-size: 1.5em;
-    width: 200px;
 }
 
 .subtitle{
@@ -131,7 +128,7 @@ button:hover{
     height: 550px;
     border: 1px transparent solid;
     border-radius: 10px;
-    background-color: #edf2f4;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 

@@ -15,13 +15,15 @@ let color="#000000";
 let botaoDownload = document.getElementById('download');
 
 botaoDownload.addEventListener('click', () =>{
+  gridContainer.style.boxShadow = 'none';
   html2canvas(gridContainer).then(function(canvas) {
-    var imgData = canvas.toDataURL('image/jpeg');
-    var link = document.createElement('a');
+    let imgData = canvas.toDataURL('image/jpeg');
+    let link = document.createElement('a');
     link.href = imgData;
     link.download = 'minhaDiv.jpeg';
     link.click();
   });
+  gridContainer.style.boxShadow = 'rgba(0, 0, 0, 0.24) 0px 3px 8px';
 });
 
 // Create dynamically grid items based in the slide bar size

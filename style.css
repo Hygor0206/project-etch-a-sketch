@@ -3,19 +3,14 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-:root {
-    --grid-size: 1;
+ 
+:root{
+    --grid-size:1;
 }
   
-#container {
+.grid {
     display: grid;
-    grid-template-rows: repeat(var(--grid-size), 20px);
-    grid-template-columns: repeat(var(--grid-size), 20px);
-    border-radius: 5px;
-}
-  
-.grid-item {
-    border: 1px solid black;
-    text-align: center;
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

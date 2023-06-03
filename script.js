@@ -2,12 +2,13 @@ const gridContainer = document.getElementById("grid");
 const slider=document.getElementById("sizeSlider");
 const sliderValue = document.getElementById("sizeValue");
 const inputColor = document.getElementById("colorPicker");
-const colorMode = document.getElementById("colorBtn");
+const normalMode = document.getElementById("colorBtn");
 const rainbowMode = document.getElementById("rainbowBtn");
 const erase = document.getElementById("eraserBtn");
 const clear = document.getElementById("clearBtn");
 
-let mouseDown = false
+let mouseDown = false;
+let mode="color";
 
 let color="#000000";
 let botaoDownload = document.getElementById('download');
@@ -23,7 +24,7 @@ function makeRows(size) {
     // A event when the mouse button is clicked
     cell.addEventListener("mousedown",() =>{
         mouseDown=true;
-        cell.style.backgroundColor = color;
+        colorMode(cell);
     });
 
     // A event when the mouse button was released
@@ -34,7 +35,7 @@ function makeRows(size) {
     // A event, when the mouse over a grid item, then, change his color
     cell.addEventListener("mouseover",() =>{
       if(mouseDown){
-        cell.style.backgroundColor = color; // Color change according to color input
+        colorMode(cell); // Color change according to color input
       }
     });
 
@@ -44,6 +45,7 @@ function makeRows(size) {
 
 let size=16;
 makeRows(size);
+buttonLayout(mode);
 
 // Slider Bar to change the size of grid
 slider.addEventListener('input', () => {
@@ -57,21 +59,60 @@ inputColor.addEventListener('change', () => {
   color=inputColor.value; 
 });
 
-// Color Mode
-colorMode.addEventListener('click', () => {
-  color=inputColor.value;
+// Normal Mode
+normalMode.addEventListener('click', () => {
+  mode="color";
+  buttonLayout(mode);
+});
+
+// Rainbow Mode
+rainbowMode.addEventListener('click', () => {
+  mode="rainbow";
+  buttonLayout(mode);
 });
 
 // Erase Mode
 erase.addEventListener('click', () => {
-  color="white";
+  mode="erase";
+  buttonLayout(mode);
 });
 
 // Clear Grid
 clear.addEventListener('click', () => {
   grid.innerHTML = '';
   makeRows(size);
+  buttonLayout(mode);
 });
+
+// Color Mode
+function colorMode(cell){
+  if(mode=="color"){
+    cell.style.backgroundColor = color;
+  }else if(mode=="rainbow"){
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    cell.style.backgroundColor = `rgba(${red},${green},${blue})`;
+  }else{
+    cell.style.backgroundColor = "white";
+  }
+}
+
+function buttonLayout(style){
+  if(style=="color"){
+    normalMode.classList.add("active");
+    rainbowMode.classList.remove("active");
+    erase.classList.remove("active");
+  }else if(style=="rainbow"){
+    rainbowMode.classList.add("active");
+    normalMode.classList.remove("active");
+    erase.classList.remove("active");
+  }else{
+    erase.classList.add("active");
+    rainbowMode.classList.remove("active");
+    normalMode.classList.remove("active");
+  }
+}
 
 // Download
 botaoDownload.addEventListener('click', () =>{

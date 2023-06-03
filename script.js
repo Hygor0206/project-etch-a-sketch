@@ -98,6 +98,7 @@ function colorMode(cell){
   }
 }
 
+// Button to define the layout of the button
 function buttonLayout(style){
   if(style=="color"){
     normalMode.classList.add("active");

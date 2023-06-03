@@ -28,6 +28,12 @@
             <div id="grid" class="grid"></div>
         </div>
     </main>
+    <footer><p id="footer"></p></footer>
+    <script type="text/javascript">
+        const footer = document.querySelector('#footer');
+        let year = new  Date().getFullYear();
+        footer.textContent = "Copyright © "+year+" Albert Marques";
+    </script>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="html2canvas.min.js"></script>
 </body>

@@ -45,6 +45,10 @@ button.active{
     border-color: #780000;
 }
 
+footer{
+    text-align: center;
+}
+
 .title{
     font-size: 3rem;
     color: #ef233c;
